@@ -1,0 +1,12 @@
+name: bookkeeper CI
+
+on:
+  push:
+    branches: [ main ]      # ogni volta che fai push su main
+  pull_request:
+    branches: [ main ]      # ogni volta che apri una pull request verso main
+
+
+jobs:
+  build:              # nome del job
+    runs-on: ubuntu-latest    # sistema operativo usato per eseguire il job
