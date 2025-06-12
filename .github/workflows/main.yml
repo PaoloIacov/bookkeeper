@@ -10,3 +10,19 @@ on:
 jobs:
   build:              # nome del job
     runs-on: ubuntu-latest    # sistema operativo usato per eseguire il job
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Build bookkeeper-server without tests
+        run: mvn clean install -DskipTests -pl bookkeeper-server
+
+      - name: Run my test suite only
+        run: mvn -pl bookkeeper-server -Dtest=org.apache.bookkeeper.mytests.MyProjectTestSuite test
