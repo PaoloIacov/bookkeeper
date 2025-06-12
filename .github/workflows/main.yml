@@ -2,9 +2,9 @@ name: bookkeeper CI
 
 on:
   push:
-    branches: [ main ]      # ogni volta che fai push su main
+    branches: [ master ]      # ogni volta che fai push su main
   pull_request:
-    branches: [ main ]      # ogni volta che apri una pull request verso main
+    branches: [ master ]      # ogni volta che apri una pull request verso main
 
 
 jobs:
