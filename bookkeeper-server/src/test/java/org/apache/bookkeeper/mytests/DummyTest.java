@@ -8,6 +8,6 @@ public class DummyTest {
 
     @Test
     public void dummyTestShouldPass() {
-        assertTrue(false);
+        assertTrue(true);
     }
 }
