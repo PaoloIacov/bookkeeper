@@ -1,28 +1,27 @@
-name: bookkeeper CI
+name: BookKeeper CI - My Test Suite
 
 on:
   push:
-    branches: [ master ]      # ogni volta che fai push su main
+    branches: [ master ]
   pull_request:
-    branches: [ master ]      # ogni volta che apri una pull request verso main
-
+    branches: [ master ]
 
 jobs:
-  build:              # nome del job
-    runs-on: ubuntu-latest    # sistema operativo usato per eseguire il job
+  test:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Setup Java
+      - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Build bookkeeper-server without tests
-        run: mvn clean install -DskipTests -pl bookkeeper-server
+      - name: Build only bookkeeper-server and its dependencies
+        run: mvn clean install -DskipTests -pl bookkeeper-server -am
 
-      - name: Run my test suite only
+      - name: Run MyProjectTestSuite
         run: mvn -pl bookkeeper-server -Dtest=org.apache.bookkeeper.mytests.MyProjectTestSuite test

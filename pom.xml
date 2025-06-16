@@ -997,8 +997,7 @@
         <artifactId>spotbugs-maven-plugin</artifactId>
         <version>${spotbugs-maven-plugin.version}</version>
         <configuration>
-          <excludeFilterFile>${session.executionRootDirectory}/buildtools/src/main/resources/bookkeeper/findbugsExclude.xml</excludeFilterFile>
-        </configuration>
+            </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -1217,11 +1216,9 @@
           <plugin>
             <groupId>org.owasp</groupId>
             <artifactId>dependency-check-maven</artifactId>
-            <version>${dependency-check-maven.version}</version>
             <inherited>false</inherited>
             <configuration>
               <!-- https://issues.apache.org/jira/projects/INFRA/issues/INFRA-26000 -->
-              <nvdApiKeyEnvironmentVariable>NIST_NVD_API_KEY</nvdApiKeyEnvironmentVariable>
               <!-- Uncomment the following to use the NVD data feed provided by the Dependency-Check project -->
               <!-- <nvdDatafeedUrl>https://jeremylong.github.io/DependencyCheck/hb_nvd/</nvdDatafeedUrl> -->
               <suppressionFiles>
@@ -1272,34 +1269,6 @@
       </properties>
       <build>
         <plugins>
-          <plugin>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-maven-plugin</artifactId>
-            <version>${lombok-maven-plugin.version}</version>
-            <inherited>true</inherited>
-            <dependencies>
-              <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-              </dependency>
-            </dependencies>
-            <executions>
-              <execution>
-                <phase>generate-sources</phase>
-                <goals>
-                  <goal>delombok</goal>
-                </goals>
-                <configuration>
-                  <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
-                  <outputDirectory>${project.build.directory}/generated-sources/delombok</outputDirectory>
-                  <formatPreferences>
-                    <pretty />
-                  </formatPreferences>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>

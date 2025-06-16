@@ -49,12 +49,7 @@
       <!-- this should not be bundled in binary distributions -->
       <optional>true</optional>
     </dependency>
-    <dependency>
-      <groupId>org.apache.bookkeeper</groupId>
-      <artifactId>testtools</artifactId>
-      <version>${project.parent.version}</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>org.jmock</groupId>
       <artifactId>jmock</artifactId>
